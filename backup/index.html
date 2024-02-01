@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="view-transition" content="same-origin" />
     <script
-      src="/shared/html/html-include.component.mjs"
+      src="/dayco-v2/shared/html/html-include.component.mjs"
       type="module"
     ></script>
-    <script src="/shared/form-js/form-js.component.mjs" type="module"></script>
-    <script src="/shared/pjax/pjax.mjs" type="module"></script>
+    <script src="/dayco-v2/shared/form-js/form-js.component.mjs" type="module"></script>
+    <script src="/dayco-v2/shared/pjax/pjax.mjs" type="module"></script>
     <title>Thingz</title>
-    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/dayco-v2/main.css" />
   </head>
 
   <body>
-    <html-include url="/shared/navbar/navbar.fragment"></html-include>
+    <html-include url="/dayco-v2/shared/navbar/navbar.fragment"></html-include>
 
     <h1>Sauvegarde</h1>
 
     <section>
-      <form-js action="/backup/downloadJsonFeeds.mjs">
+      <form-js action="/dayco-v2/backup/downloadJsonFeeds.mjs">
         <button type="submit">
           Télécharger les abonnements au format JSON
         </button>
@@ -28,7 +28,7 @@
     </section>
 
     <section>
-      <form-js action="/backup/deleteDatabase.mjs">
+      <form-js action="/dayco-v2/backup/deleteDatabase.mjs">
         <button type="submit">Supprimer la base de données</button>
       </form-js>
     </section>

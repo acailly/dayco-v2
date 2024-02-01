@@ -14,7 +14,7 @@ const addFeed = (form) => {
     url: data.get("url"),
   });
 
-  return "/feeds";
+  return "/dayco-v2/feeds";
 };
 
 export default addFeed;

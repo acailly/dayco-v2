@@ -21,7 +21,10 @@ customElements.define(
         <small>${date}</small>
         <br />
         <a target="_blank" rel="noopener noreferrer" href="${url}">${url} ↗</a>
-        <form-js action="/posts/deletePost.mjs" id="form-delete-post-${id}">
+        <form-js
+          action="/dayco-v2/posts/deletePost.mjs"
+          id="form-delete-post-${id}"
+        >
           <input type="hidden" name="id" value="${id}" />
         </form-js>
       `;
