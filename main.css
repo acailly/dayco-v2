@@ -1,0 +1,148 @@
+:root {
+  --background: #fff;
+  --text: #000;
+  --text-light: #777;
+  --link: #0057b7;
+}
+
+/* General */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Segoe UI, Arial, Helvetica, sans-serif;
+  color: var(--text);
+  font-size: 18px;
+  background-color: var(--background);
+}
+
+/* Page Header */
+
+body > header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+body > header > :first-child {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+body > header > nav > :not(:first-child) {
+  margin-left: 1rem;
+}
+
+/* Main title */
+
+h1 {
+  text-align: center;
+}
+
+/* Button */
+
+button {
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  background-color: var(--background);
+  cursor: pointer;
+  padding: 2px 8px;
+  font-size: 0.9em;
+  margin: 1px;
+}
+
+button:hover {
+  border-width: 2px;
+  margin: 0px;
+}
+
+p button:not(:first-child) {
+  margin-left: 0.5rem;
+}
+
+/* Links */
+
+a {
+  color: var(--link);
+  font-size: 0.9em;
+}
+
+/* Details and summary */
+
+summary {
+  cursor: pointer;
+}
+
+summary h1,
+summary h2,
+summary h3,
+summary h4,
+summary h5,
+summary h6 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+details:has(
+    summary h1,
+    summary h2,
+    summary h3,
+    summary h4,
+    summary h5,
+    summary h6
+  ) {
+  margin-bottom: 2em;
+}
+
+/* Small */
+
+small {
+  color: var(--text-light);
+}
+
+/* Form */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+/* List */
+
+post-list-item,
+fetch-list-item,
+feed-list-item {
+  display: block;
+  line-height: 1.5;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/** Toast */
+
+toast-message {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+  background-color: #eee;
+  border-radius: 10px;
+  border: #ddd solid 1px;
+}
+
+/** Section **/
+
+section {
+  margin-bottom: 2em;
+}

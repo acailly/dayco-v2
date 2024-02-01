@@ -1,0 +1,15 @@
+{
+  "name": "rss-reader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "npx eslint -c .eslintrc.json .",
+    "check-types": "npx --package typescript tsc --project jsconfig.json",
+    "serve": "npx serve",
+    "replace-head": "node ./dev/replace-head-everywhere"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
+    <script
+      src="/shared/html/html-include.component.mjs"
+      type="module"
+    ></script>
+    <script src="/shared/form-js/form-js.component.mjs" type="module"></script>
+    <script src="/shared/pjax/pjax.mjs" type="module"></script>
+    <title>Thingz</title>
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+
+  <body>
+    <html-include url="/shared/navbar/navbar.fragment"></html-include>
+
+    <h1>Sauvegarde</h1>
+
+    <section>
+      <form-js action="/backup/downloadJsonFeeds.mjs">
+        <button type="submit">
+          Télécharger les abonnements au format JSON
+        </button>
+      </form-js>
+    </section>
+
+    <section>
+      <form-js action="/backup/deleteDatabase.mjs">
+        <button type="submit">Supprimer la base de données</button>
+      </form-js>
+    </section>
+  </body>
+</html>

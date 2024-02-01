@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
+    <script
+      src="/shared/html/html-include.component.mjs"
+      type="module"
+    ></script>
+    <script src="/shared/form-js/form-js.component.mjs" type="module"></script>
+    <script src="/shared/pjax/pjax.mjs" type="module"></script>
+    <title>Thingz</title>
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+
+  <body>
+    <html-include url="/shared/navbar/navbar.fragment"></html-include>
+
+    <h1>Récupérer les publications</h1>
+
+    <section>
+      <a href="/posts">Retourner aux publications</a>
+    </section>
+
+    <section>
+      <script src="/fetch/fetch-list.component.mjs" type="module"></script>
+      <fetch-list></fetch-list>
+    </section>
+  </body>
+</html>
