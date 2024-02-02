@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="view-transition" content="same-origin" />
-    
+
     <meta name="description" content="Dayco" />
     <!-- Generated with https://realfavicongenerator.net/ -->
     <link rel="apple-touch-icon" sizes="180x180" href="../shared/favicon/apple-touch-icon.png" />
@@ -13,7 +13,7 @@
     <link rel="mask-icon" href="../shared/favicon/safari-pinned-tab.svg" color="#4cafcb" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="theme-color" content="#ffffff" />
-    
+
     <script src="../shared/navbar/navbar.component.mjs" type="module"></script>
     <script src="../shared/form-js/form-js.component.mjs" type="module"></script>
     <script src="../shared/pjax/pjax.mjs" type="module"></script>
@@ -35,6 +35,13 @@
     <section>
       <form-js action="backup/deleteDatabase.mjs">
         <button type="submit">Supprimer la base de données</button>
+      </form-js>
+    </section>
+
+    <section>
+      <form-js action="backup/restoreJsonFeeds.mjs">
+        <button>Restaurer les abonnements depuis un fichier JSON</button>
+        <input id="file" type="file" />
       </form-js>
     </section>
   </body>
