@@ -4,24 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="view-transition" content="same-origin" />
-    <script src="/dayco-v2/shared/html/html-include.component.mjs" type="module"></script>
-    <script src="/dayco-v2/shared/form-js/form-js.component.mjs" type="module"></script>
-    <script src="/dayco-v2/shared/pjax/pjax.mjs" type="module"></script>
+    <script src="../shared/html/html-include.component.mjs" type="module"></script>
+    <script src="../shared/form-js/form-js.component.mjs" type="module"></script>
+    <script src="../shared/pjax/pjax.mjs" type="module"></script>
     <title>Thingz</title>
-    <link rel="stylesheet" href="/dayco-v2/main.css" />
+    <link rel="stylesheet" href="../main.css" />
   </head>
 
   <body>
-    <html-include url="/dayco-v2/shared/navbar/navbar.fragment"></html-include>
+    <html-include url="../shared/navbar/navbar.fragment"></html-include>
 
     <h1>Récupérer les publications</h1>
 
     <section>
-      <a href="/dayco-v2/posts">Retourner aux publications</a>
+      <a href="../posts">Retourner aux publications</a>
     </section>
 
     <section>
-      <script src="/dayco-v2/fetch/fetch-list.component.mjs" type="module"></script>
+      <script src="fetch-list.component.mjs" type="module"></script>
       <fetch-list></fetch-list>
     </section>
   </body>

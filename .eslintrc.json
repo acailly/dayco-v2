@@ -33,7 +33,8 @@
       "rules": {
         "@html-eslint/indent": ["error", 2],
         "@html-eslint/require-closing-tags": "off",
-        "@html-eslint/no-extra-spacing-attrs": "off"
+        "@html-eslint/no-extra-spacing-attrs": "off",
+        "@html-eslint/element-newline": "off"
       }
     }
   ]
