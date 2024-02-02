@@ -6,8 +6,7 @@
   "scripts": {
     "lint": "npx eslint -c .eslintrc.json .",
     "check-types": "npx --package typescript tsc --project jsconfig.json",
-    "serve": "npx serve",
-    "replace-head": "node ./dev/replace-head-everywhere"
+    "serve": "npx serve"
   },
   "keywords": [],
   "author": "",
