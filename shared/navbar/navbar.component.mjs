@@ -14,9 +14,9 @@ if (!customElements.get('nav-bar')) {
           <span>⌚ Dayco</span>
 
           <nav>
-            <a href="${baseURL}/posts">Publications</a>
-            <a href="${baseURL}/feeds">Abonnements</a>
-            <a href="${baseURL}/backup">Sauvegarde</a>
+            <a href="${baseURL}posts/">Publications</a>
+            <a href="${baseURL}feeds/">Abonnements</a>
+            <a href="${baseURL}backup/">Sauvegarde</a>
           </nav>
         </header>`
       }

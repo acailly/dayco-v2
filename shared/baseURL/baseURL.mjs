@@ -13,7 +13,7 @@ function isLocalNetwork(hostname) {
   )
 }
 
-const prefix = isLocalNetwork(window.location.hostname) ? '' : '/dayco-v2'
+const prefix = isLocalNetwork(window.location.hostname) ? '/' : '/dayco-v2/'
 const baseURL = window.location.origin + prefix
 
 export default baseURL
