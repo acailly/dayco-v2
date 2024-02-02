@@ -15,7 +15,7 @@ body {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  font-family: Segoe UI, Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
   color: var(--text);
   font-size: 18px;
   background-color: var(--background);
@@ -47,7 +47,7 @@ h1 {
 /* Button */
 
 button {
-  border: 1px solid currentColor;
+  border: 1px solid currentcolor;
   border-radius: 6px;
   background-color: var(--background);
   cursor: pointer;
@@ -58,7 +58,7 @@ button {
 
 button:hover {
   border-width: 2px;
-  margin: 0px;
+  margin: 0;
 }
 
 p button:not(:first-child) {
@@ -89,14 +89,7 @@ summary h6 {
   display: inline-block;
 }
 
-details:has(
-    summary h1,
-    summary h2,
-    summary h3,
-    summary h4,
-    summary h5,
-    summary h6
-  ) {
+details:has(summary h1, summary h2, summary h3, summary h4, summary h5, summary h6) {
   margin-bottom: 2em;
 }
 

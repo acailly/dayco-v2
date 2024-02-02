@@ -1,33 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="view-transition" content="same-origin">
-        <script
-            src="/dayco-v2/shared/html/html-include.component.mjs"
-            type="module"
-        ></script>
-        <script src="/dayco-v2/shared/form-js/form-js.component.mjs" type="module"></script>
-        <script src="/dayco-v2/shared/pjax/pjax.mjs" type="module"></script>
-        <title>Thingz</title>
-        <link rel="stylesheet" href="/dayco-v2/main.css">
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
+    <script src="/dayco-v2/shared/html/html-include.component.mjs" type="module"></script>
+    <script src="/dayco-v2/shared/form-js/form-js.component.mjs" type="module"></script>
+    <script src="/dayco-v2/shared/pjax/pjax.mjs" type="module"></script>
+    <title>Thingz</title>
+    <link rel="stylesheet" href="/dayco-v2/main.css" />
+  </head>
 
-    <body>
-        <html-include url="/dayco-v2/shared/navbar/navbar.fragment"></html-include>
+  <body>
+    <html-include url="/dayco-v2/shared/navbar/navbar.fragment"></html-include>
 
-        <h1>Publications</h1>
+    <h1>Publications</h1>
 
-        <section>
-            <form method="GET" action="/dayco-v2/fetch">
-                <button type="submit">Récupérer les nouvelles publications</button>
-            </form>
-        </section>
+    <section>
+      <form method="GET" action="/dayco-v2/fetch">
+        <button type="submit">Récupérer les nouvelles publications</button>
+      </form>
+    </section>
 
-        <section>
-            <script src="/dayco-v2/posts/post-list.component.mjs" type="module"></script>
-            <post-list></post-list>
-        </section>
-    </body>
+    <section>
+      <script src="/dayco-v2/posts/post-list.component.mjs" type="module"></script>
+      <post-list></post-list>
+    </section>
+  </body>
 </html>

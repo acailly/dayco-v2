@@ -2,7 +2,7 @@
 
 // The MIT License (MIT)
 
-import html from "../html/html-tag.mjs";
+import html from '../html/html-tag.mjs'
 
 // Copyright (c) Utkarsh Verma
 
@@ -23,12 +23,7 @@ import html from "../html/html-tag.mjs";
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-export default html`<svg
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  xmlns="http://www.w3.org/2000/svg"
->
+export default html`<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
   <style>
     .spinner_7NYg {
       animation: spinner_0KQs 1.2s cubic-bezier(0.52, 0.6, 0.25, 0.99) infinite;
@@ -45,4 +40,4 @@ export default html`<svg
     }
   </style>
   <circle class="spinner_7NYg" cx="12" cy="12" r="0" />
-</svg>`;
+</svg>`

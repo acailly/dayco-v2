@@ -1,31 +1,31 @@
-const NAVIGATE_EVENT = "form-js:navigate";
+const NAVIGATE_EVENT = 'form-js:navigate'
 
 customElements.define(
-  "form-js",
+  'form-js',
   class extends HTMLElement {
     constructor() {
-      super();
+      super()
     }
 
     connectedCallback() {
-      const children = this.innerHTML;
+      const children = this.innerHTML
 
-      const form = window.document.createElement("form");
+      const form = window.document.createElement('form')
 
       while (this.attributes.length) {
-        const attribute = this.attributes.item(0);
+        const attribute = this.attributes.item(0)
         if (attribute) {
-          form.setAttribute(attribute.name, attribute.value);
-          this.removeAttribute(attribute.name);
+          form.setAttribute(attribute.name, attribute.value)
+          this.removeAttribute(attribute.name)
         }
       }
 
-      form.setAttribute("method", "JS");
-      form.innerHTML = children;
+      form.setAttribute('method', 'JS')
+      form.innerHTML = children
 
-      this.replaceChildren(form);
+      this.replaceChildren(form)
 
-      this.listenFormSubmit(form);
+      this.listenFormSubmit(form)
     }
 
     /**
@@ -33,15 +33,15 @@ customElements.define(
      */
     listenFormSubmit(form) {
       form.addEventListener(
-        "submit",
+        'submit',
         (event) => {
-          const action = form.action;
+          const action = form.action
 
-          event.preventDefault();
+          event.preventDefault()
 
           import(action)
             .then((module) => {
-              return Promise.resolve(module.default(form));
+              return Promise.resolve(module.default(form))
             })
             .then((href) => {
               if (href) {
@@ -54,19 +54,19 @@ customElements.define(
                       href,
                     },
                   })
-                );
+                )
                 if (cancelled) {
-                  return;
+                  return
                 }
 
-                window.location = href;
+                window.location = href
               }
-            });
+            })
 
-          return false;
+          return false
         },
         true /* useCapture */
-      );
+      )
     }
   }
-);
+)

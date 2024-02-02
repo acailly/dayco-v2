@@ -1,5 +1,5 @@
-import * as store from "../store/indexedDBStore.mjs";
-import { POST, FEED } from "../types.mjs";
+import * as store from '../store/indexedDBStore.mjs'
+import { POST, FEED } from '../types.mjs'
 
 /**@typedef {import('../types.mjs').Feed} Feed */
 /**@typedef {import('../types.mjs').Post} Post */
@@ -11,24 +11,21 @@ import { POST, FEED } from "../types.mjs";
  * @returns {Promise<void>}
  */
 async function addNewPosts(feedId, newPosts) {
-  const thing = await store.findThingById(FEED, feedId);
+  const thing = await store.findThingById(FEED, feedId)
 
   if (!thing) {
-    return;
+    return
   }
 
-  const feed = /** @type {Feed} */ (thing);
+  const feed = /** @type {Feed} */ (thing)
 
-  let currentLastFetchTimestamp = feed.lastFetchTimestamp;
-  let newLastFetchTimestamp = currentLastFetchTimestamp;
+  let currentLastFetchTimestamp = feed.lastFetchTimestamp
+  let newLastFetchTimestamp = currentLastFetchTimestamp
 
   for (let newPostIndex = 0; newPostIndex < newPosts.length; newPostIndex++) {
-    const newPost = newPosts[newPostIndex];
+    const newPost = newPosts[newPostIndex]
 
-    if (
-      !currentLastFetchTimestamp ||
-      newPost.timestamp > currentLastFetchTimestamp
-    ) {
+    if (!currentLastFetchTimestamp || newPost.timestamp > currentLastFetchTimestamp) {
       /** @type {Post} */
       const postToStore = {
         type: POST,
@@ -37,17 +34,14 @@ async function addNewPosts(feedId, newPosts) {
         url: newPost.url,
         timestamp: newPost.timestamp,
         feedId: feed.id,
-      };
+      }
 
       // If the post already exists, it will be overwritten
-      await store.storeThing(postToStore);
+      await store.storeThing(postToStore)
     }
 
-    if (
-      !newLastFetchTimestamp ||
-      (newPost.timestamp && newPost.timestamp > newLastFetchTimestamp)
-    ) {
-      newLastFetchTimestamp = newPost.timestamp;
+    if (!newLastFetchTimestamp || (newPost.timestamp && newPost.timestamp > newLastFetchTimestamp)) {
+      newLastFetchTimestamp = newPost.timestamp
     }
   }
 
@@ -55,8 +49,8 @@ async function addNewPosts(feedId, newPosts) {
   const feedToStore = {
     ...feed,
     lastFetchTimestamp: newLastFetchTimestamp,
-  };
-  await store.storeThing(feedToStore);
+  }
+  await store.storeThing(feedToStore)
 }
 
-export default addNewPosts;
+export default addNewPosts

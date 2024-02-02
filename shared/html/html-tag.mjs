@@ -4,14 +4,14 @@
  * @returns {string}
  */
 function html(texts, ...vars) {
-  let result = texts[0];
+  let result = texts[0]
 
   for (let textIndex = 1; textIndex < texts.length; textIndex++) {
-    result += vars[textIndex - 1];
-    result += texts[textIndex];
+    result += vars[textIndex - 1]
+    result += texts[textIndex]
   }
 
-  return result;
+  return result
 }
 
-export default html;
+export default html

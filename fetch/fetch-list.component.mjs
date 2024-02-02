@@ -1,33 +1,29 @@
-import html from "../shared/html/html-tag.mjs";
-import { FEED } from "../types.mjs";
-import * as store from "../store/indexedDBStore.mjs";
-import "./fetch-list-item.component.mjs";
-import compareString from "../shared/strings/compareString.mjs";
+import html from '../shared/html/html-tag.mjs'
+import { FEED } from '../types.mjs'
+import * as store from '../store/indexedDBStore.mjs'
+import './fetch-list-item.component.mjs'
+import compareString from '../shared/strings/compareString.mjs'
 
 /** @typedef {import("../types.mjs").Feed} Feed  */
 
 customElements.define(
-  "fetch-list",
+  'fetch-list',
   class extends HTMLElement {
     constructor() {
-      super();
+      super()
     }
 
     connectedCallback() {
       store.findAllThings(FEED).then((things) => {
-        const feeds = /** @type {Feed[]} */ (things);
+        const feeds = /** @type {Feed[]} */ (things)
 
         this.innerHTML = feeds
           .sort((feedA, feedB) => compareString(feedA.title, feedB.title))
           .map(
-            (feed) => html`<fetch-list-item
-              id="${feed.id}"
-              title="${feed.title}"
-              url="${feed.url}"
-            ></fetch-list-item>`
+            (feed) => html`<fetch-list-item id="${feed.id}" title="${feed.title}" url="${feed.url}"></fetch-list-item>`
           )
-          .join("\n");
-      });
+          .join('\n')
+      })
     }
   }
-);
+)

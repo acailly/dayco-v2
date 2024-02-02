@@ -3,7 +3,7 @@
     "lib": ["es2020", "DOM"],
     "checkJs": true,
     "noEmit": true,
-    "strict": true
+    "strict": true,
   },
-  "exclude": ["types-check.js", "external-libs"]
+  "exclude": ["types-check.js", "external-libs"],
 }

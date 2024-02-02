@@ -1,21 +1,21 @@
 customElements.define(
-  "html-include",
+  'html-include',
   class extends HTMLElement {
     constructor() {
-      super();
+      super()
     }
 
     connectedCallback() {
-      const url = this.getAttribute("url");
+      const url = this.getAttribute('url')
 
       if (url) {
         fetch(url)
           .then((response) => response.text())
           .then((result) => {
-            this.insertAdjacentHTML("afterend", result);
-            this.remove();
-          });
+            this.insertAdjacentHTML('afterend', result)
+            this.remove()
+          })
       }
     }
   }
-);
+)

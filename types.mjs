@@ -1,7 +1,7 @@
 /** @typedef {typeof FEED} FEED */
-export const FEED = "FEED";
+export const FEED = 'FEED'
 /** @typedef {typeof POST} POST */
-export const POST = "POST";
+export const POST = 'POST'
 
 /**
  * @typedef {FEED | POST} Type

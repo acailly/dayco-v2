@@ -1,5 +1,5 @@
 /** @type {Object.<Type, Object.<string, Thing>>} */
-const store = {};
+const store = {}
 
 /** @typedef {import("../types.mjs").Type} Type  */
 /** @typedef {import("../types.mjs").Thing} Thing  */
@@ -8,17 +8,17 @@ const store = {};
  * @param {Thing} thing
  */
 export const storeThing = (thing) => {
-  const { type, id } = thing;
+  const { type, id } = thing
 
-  let typeStore = store[type];
+  let typeStore = store[type]
 
   if (!typeStore) {
-    store[type] = {};
-    typeStore = store[type];
+    store[type] = {}
+    typeStore = store[type]
   }
 
-  typeStore[id] = thing;
-};
+  typeStore[id] = thing
+}
 
 /**
  * @param {Type} type
@@ -26,23 +26,23 @@ export const storeThing = (thing) => {
  * @returns {Thing | undefined}
  */
 export const findThingById = (type, id) => {
-  const typeStore = store[type];
+  const typeStore = store[type]
 
   if (typeStore) {
-    return typeStore[id];
+    return typeStore[id]
   }
-};
+}
 
 /**
  * @param {Type} type
  * @returns {Thing[]}
  */
 export const findAllThings = (type) => {
-  const typeStore = store[type];
+  const typeStore = store[type]
 
   if (typeStore) {
-    return Object.values(typeStore);
+    return Object.values(typeStore)
   }
 
-  return [];
-};
+  return []
+}

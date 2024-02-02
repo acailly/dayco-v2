@@ -9,10 +9,10 @@
     "sourceType": "module"
   },
   "ignorePatterns": ["external-libs/"],
+  "plugins": ["@html-eslint"],
   "rules": {
     "no-var": "error"
   },
-  "plugins": ["@html-eslint"],
   "overrides": [
     {
       "files": ["types-check.js", "lint-check.js"],
@@ -29,7 +29,12 @@
     {
       "files": ["*.html"],
       "parser": "@html-eslint/parser",
-      "extends": ["plugin:@html-eslint/recommended"]
+      "extends": ["plugin:@html-eslint/recommended"],
+      "rules": {
+        "@html-eslint/indent": ["error", 2],
+        "@html-eslint/require-closing-tags": "off",
+        "@html-eslint/no-extra-spacing-attrs": "off"
+      }
     }
   ]
 }
