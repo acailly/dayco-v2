@@ -1,72 +1,74 @@
-const NAVIGATE_EVENT = 'form-js:navigate'
+if (!customElements.get('form-js')) {
+  const NAVIGATE_EVENT = 'form-js:navigate'
 
-customElements.define(
-  'form-js',
-  class extends HTMLElement {
-    constructor() {
-      super()
-    }
-
-    connectedCallback() {
-      const children = this.innerHTML
-
-      const form = window.document.createElement('form')
-
-      while (this.attributes.length) {
-        const attribute = this.attributes.item(0)
-        if (attribute) {
-          form.setAttribute(attribute.name, attribute.value)
-          this.removeAttribute(attribute.name)
-        }
+  customElements.define(
+    'form-js',
+    class extends HTMLElement {
+      constructor() {
+        super()
       }
 
-      form.setAttribute('method', 'JS')
-      form.innerHTML = children
+      connectedCallback() {
+        const children = this.innerHTML
 
-      this.replaceChildren(form)
+        const form = window.document.createElement('form')
 
-      this.listenFormSubmit(form)
-    }
+        while (this.attributes.length) {
+          const attribute = this.attributes.item(0)
+          if (attribute) {
+            form.setAttribute(attribute.name, attribute.value)
+            this.removeAttribute(attribute.name)
+          }
+        }
 
-    /**
-     * @param {HTMLFormElement} form
-     */
-    listenFormSubmit(form) {
-      form.addEventListener(
-        'submit',
-        (event) => {
-          const action = form.action
+        form.setAttribute('method', 'JS')
+        form.innerHTML = children
 
-          event.preventDefault()
+        this.replaceChildren(form)
 
-          import(action)
-            .then((module) => {
-              return Promise.resolve(module.default(form))
-            })
-            .then((href) => {
-              if (href) {
-                // Send an event to pjax tools
-                const cancelled = !window.document.dispatchEvent(
-                  new CustomEvent(NAVIGATE_EVENT, {
-                    cancelable: true,
-                    bubbles: true,
-                    detail: {
-                      href,
-                    },
-                  })
-                )
-                if (cancelled) {
-                  return
+        this.listenFormSubmit(form)
+      }
+
+      /**
+       * @param {HTMLFormElement} form
+       */
+      listenFormSubmit(form) {
+        form.addEventListener(
+          'submit',
+          (event) => {
+            const action = form.action
+
+            event.preventDefault()
+
+            import(action)
+              .then((module) => {
+                return Promise.resolve(module.default(form))
+              })
+              .then((href) => {
+                if (href) {
+                  // Send an event to pjax tools
+                  const cancelled = !window.document.dispatchEvent(
+                    new CustomEvent(NAVIGATE_EVENT, {
+                      cancelable: true,
+                      bubbles: true,
+                      detail: {
+                        href,
+                      },
+                    })
+                  )
+                  if (cancelled) {
+                    return
+                  }
+
+                  window.location = href
                 }
+              })
 
-                window.location = href
-              }
-            })
-
-          return false
-        },
-        true /* useCapture */
-      )
+            return false
+          },
+          true /* useCapture */
+        )
+      }
     }
-  }
-)
+  )
+}
