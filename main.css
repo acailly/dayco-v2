@@ -21,20 +21,20 @@ body {
   background-color: var(--background);
 }
 
-/* Page Header */
+/* Nav bar */
 
-body > header {
+nav-bar > header {
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
 }
 
-body > header > :first-child {
+nav-bar > header > :first-child {
   font-size: 1.5em;
   font-weight: 700;
 }
 
-body > header > nav > :not(:first-child) {
+nav-bar > header > nav > :not(:first-child) {
   margin-left: 1rem;
 }
 

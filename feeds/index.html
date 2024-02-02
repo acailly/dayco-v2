@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="view-transition" content="same-origin" />
-    <script src="../shared/html/html-include.component.mjs" type="module"></script>
+    <script src="../shared/navbar/navbar.component.mjs" type="module"></script>
     <script src="../shared/form-js/form-js.component.mjs" type="module"></script>
     <script src="../shared/pjax/pjax.mjs" type="module"></script>
     <title>Dayco</title>
@@ -12,18 +12,18 @@
   </head>
 
   <body>
-    <html-include url="../shared/navbar/navbar.fragment"></html-include>
+    <nav-bar></nav-bar>
 
     <h1>Abonnements</h1>
 
     <section>
-      <form method="GET" action="create">
+      <form method="GET" action="feeds/create">
         <button type="submit">Ajouter un abonnement</button>
       </form>
     </section>
 
     <section>
-      <script src="feed-list.component.mjs" type="module"></script>
+      <script src="feeds/feed-list.component.mjs" type="module"></script>
       <feed-list></feed-list>
     </section>
   </body>

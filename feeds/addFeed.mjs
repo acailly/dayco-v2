@@ -1,3 +1,4 @@
+import baseURL from '../shared/baseURL/baseURL.mjs'
 import { storeThing } from '../store/indexedDBStore.mjs'
 import { FEED } from '../types.mjs'
 
@@ -14,8 +15,7 @@ const addFeed = (form) => {
     url: data.get('url'),
   })
 
-  // FIXME trouver un moyen plus clean tout en gérant la base url
-  return window.location.href + '/../feeds'
+  return baseURL + '/feeds'
 }
 
 export default addFeed

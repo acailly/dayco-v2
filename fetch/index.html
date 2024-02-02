@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="view-transition" content="same-origin" />
-    <script src="../shared/html/html-include.component.mjs" type="module"></script>
+    <script src="../shared/navbar/navbar.component.mjs" type="module"></script>
     <script src="../shared/form-js/form-js.component.mjs" type="module"></script>
     <script src="../shared/pjax/pjax.mjs" type="module"></script>
     <title>Dayco</title>
@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <html-include url="../shared/navbar/navbar.fragment"></html-include>
+    <nav-bar></nav-bar>
 
     <h1>Récupérer les publications</h1>
 
@@ -21,7 +21,7 @@
     </section>
 
     <section>
-      <script src="fetch-list.component.mjs" type="module"></script>
+      <script src="fetch/fetch-list.component.mjs" type="module"></script>
       <fetch-list></fetch-list>
     </section>
   </body>
