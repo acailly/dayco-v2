@@ -18,7 +18,7 @@ if (!customElements.get('feed-list-item')) {
           <button type="submit" form="form-delete-feed-${id}">Supprimer</button>
           <br />
           <a target="_blank" rel="noopener noreferrer" href="${url}">${url} ↗</a>
-          <form-js action="deleteFeed.mjs" id="form-delete-feed-${id}">
+          <form-js action="feeds/deleteFeed.mjs" id="form-delete-feed-${id}">
             <input type="hidden" name="id" value="${id}" />
           </form-js>`
       }
