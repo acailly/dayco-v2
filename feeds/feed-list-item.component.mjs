@@ -17,7 +17,7 @@ customElements.define(
         <button type="submit" form="form-delete-feed-${id}">Supprimer</button>
         <br />
         <a target="_blank" rel="noopener noreferrer" href="${url}">${url} ↗</a>
-        <form-js action="/dayco-v2/feeds/deleteFeed.mjs" id="form-delete-feed-${id}">
+        <form-js action="deleteFeed.mjs" id="form-delete-feed-${id}">
           <input type="hidden" name="id" value="${id}" />
         </form-js>`
     }

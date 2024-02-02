@@ -14,7 +14,8 @@ const addFeed = (form) => {
     url: data.get('url'),
   })
 
-  return '/dayco-v2/feeds'
+  // FIXME trouver un moyen plus clean tout en gérant la base url
+  return window.location.href + '/../feeds'
 }
 
 export default addFeed

@@ -29,7 +29,7 @@ customElements.define(
         <summary>
           <h2>${this.getTitle()}</h2>
         </summary>
-        <form-js action="/dayco-v2/posts/deleteFeedPosts.mjs">
+        <form-js action="deleteFeedPosts.mjs">
           <button type="submit">Marquer tout comme lu ✔️</button>
           <input type="hidden" name="feedId" value="${feedId}" />
         </form-js>
