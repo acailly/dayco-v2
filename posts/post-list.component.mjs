@@ -9,51 +9,53 @@ import spinner from '../shared/spinner/spinner.mjs'
 /** @typedef {import("../types.mjs").Post} Post  */
 /** @typedef {import("../types.mjs").Feed} Feed  */
 
-customElements.define(
-  'post-list',
-  class extends HTMLElement {
-    constructor() {
-      super()
-    }
+if (!customElements.get('post-list')) {
+  customElements.define(
+    'post-list',
+    class extends HTMLElement {
+      constructor() {
+        super()
+      }
 
-    connectedCallback() {
-      this.innerHTML = html`<span>Chargement... ${spinner}</span>`
+      connectedCallback() {
+        this.innerHTML = html`<span>Chargement... ${spinner}</span>`
 
-      // FIXME là ca bloque le rendu à tel point que la navbar ne s'affiche pas
-      store.findAllThings(POST).then((things) => {
-        // Get all posts
-        const posts = /**@type { Post[] }*/ (things)
+        // FIXME là ca bloque le rendu à tel point que la navbar ne s'affiche pas
+        store.findAllThings(POST).then((things) => {
+          // Get all posts
+          const posts = /**@type { Post[] }*/ (things)
 
-        // Sort them by feed
+          // Sort them by feed
 
-        /** @type {Object.<string, Post[]>} */
-        const postsByFeed = {}
-        posts.forEach((post) => {
-          const feedId = post.feedId
-          let feedPosts = postsByFeed[feedId]
-          if (!feedPosts) {
-            feedPosts = []
-            postsByFeed[feedId] = feedPosts
-          }
-          feedPosts.push(post)
+          /** @type {Object.<string, Post[]>} */
+          const postsByFeed = {}
+          posts.forEach((post) => {
+            const feedId = post.feedId
+            let feedPosts = postsByFeed[feedId]
+            if (!feedPosts) {
+              feedPosts = []
+              postsByFeed[feedId] = feedPosts
+            }
+            feedPosts.push(post)
+          })
+
+          store.findAllThings(FEED).then((things) => {
+            this.innerHTML = ''
+
+            // Display posts of each feed
+            const feeds = /** @type {Feed[]} */ (things)
+            feeds
+              .sort((feedA, feedB) => compareString(feedA.title, feedB.title))
+              .forEach((feed) => {
+                const feedPosts = renderFeedPosts(feed, postsByFeed)
+                this.insertAdjacentHTML('beforeend', feedPosts)
+              })
+          })
         })
-
-        store.findAllThings(FEED).then((things) => {
-          this.innerHTML = ''
-
-          // Display posts of each feed
-          const feeds = /** @type {Feed[]} */ (things)
-          feeds
-            .sort((feedA, feedB) => compareString(feedA.title, feedB.title))
-            .forEach((feed) => {
-              const feedPosts = renderFeedPosts(feed, postsByFeed)
-              this.insertAdjacentHTML('beforeend', feedPosts)
-            })
-        })
-      })
+      }
     }
-  }
-)
+  )
+}
 
 /**
  * Display all posts of one feed

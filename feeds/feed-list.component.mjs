@@ -6,24 +6,26 @@ import compareString from '../shared/strings/compareString.mjs'
 
 /** @typedef {import("../types.mjs").Feed} Feed  */
 
-customElements.define(
-  'feed-list',
-  class extends HTMLElement {
-    constructor() {
-      super()
-    }
+if (!customElements.get('feed-list')) {
+  customElements.define(
+    'feed-list',
+    class extends HTMLElement {
+      constructor() {
+        super()
+      }
 
-    connectedCallback() {
-      store.findAllThings(FEED).then((things) => {
-        const feeds = /** @type {Feed[]} */ (things)
+      connectedCallback() {
+        store.findAllThings(FEED).then((things) => {
+          const feeds = /** @type {Feed[]} */ (things)
 
-        this.innerHTML = feeds
-          .sort((feedA, feedB) => compareString(feedA.title, feedB.title))
-          .map(
-            (feed) => html`<feed-list-item id="${feed.id}" title="${feed.title}" url="${feed.url}"></feed-list-item>`
-          )
-          .join('\n')
-      })
+          this.innerHTML = feeds
+            .sort((feedA, feedB) => compareString(feedA.title, feedB.title))
+            .map(
+              (feed) => html`<feed-list-item id="${feed.id}" title="${feed.title}" url="${feed.url}"></feed-list-item>`
+            )
+            .join('\n')
+        })
+      }
     }
-  }
-)
+  )
+}
